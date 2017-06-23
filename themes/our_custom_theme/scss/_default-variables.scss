@@ -1,0 +1,97 @@
+/**
+ * Default Variables.
+ *
+ * Modify this file to provide default Bootstrap Framework variables. The
+ * Bootstrap Framework will not override any variables defined here because it
+ * uses the `!default` flag which will only set their default if not already
+ * defined here.
+ *
+ * You can copy existing variables directly from the following file:
+ * ./THEMENAME/bootstrap/assets/stylesheets/bootstrap/_variables.scss
+ */
+
+// Set the proper directory for the Bootstrap Glyphicon font.
+$icon-font-path: '../bootstrap/assets/fonts/bootstrap/';
+
+
+/* Icons */
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/Icomoon/icomoon.eot?ypdo7h');
+  src:  url('../fonts/Icomoon/icomoon.eot?ypdo7h#iefix') format('embedded-opentype'),
+    url('../fonts/Icomoon/icomoon.ttf?ypdo7h') format('truetype'),
+    url('../fonts/Icomoon/icomoon.woff?ypdo7h') format('woff'),
+    url('../fonts/Icomoon/icomoon.svg?ypdo7h#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-undo:before {
+  content: "\e965";
+}
+
+/* Colors */
+$navbar_color: #2C3866;
+$white_blue: #e9edfb;
+// darken(#e9edfb, 1%);
+$light_background: rgba(218,220,226,0.5);
+$bullet_color: #cbd3e7;
+$footer_above_color: #13182B;
+$footer_color: #58607F;
+$gold: #AD8B29;
+$gold_transparent: rgba(173, 139, 41, 0.5);
+$box_color: #abb0c5;
+
+$text_dark: #0D173D;
+
+
+/* Fonts */
+$font: 'Raleway', sans-serif;
+$font2: 'Roboto', serif;
+$icon-font: 'FontAwesome';
+
+
+/* Keyframes */
+@keyframes spaceboots {
+  0% { transform: translate(2px, 1px) rotate(0deg); }
+  // 10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  // 20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(0px, 2px) rotate(0deg); }
+  // 40% { transform: translate(1px, -1px) rotate(1deg); }
+  // 50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  // 70% { transform: translate(2px, 1px) rotate(-1deg); }
+  // 80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(2px, 2px) rotate(0deg); }
+  100% { transform: translate(2px, 1px) rotate(0deg); }
+}
+
+
+@-webkit-keyframes spaceboots {
+    0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
+    // 10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+    // 20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+    30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+    // 40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
+    // 50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+    // 70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
+    // 80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
+    90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
+    100% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
+}

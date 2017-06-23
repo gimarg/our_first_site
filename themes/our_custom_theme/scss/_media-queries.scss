@@ -1,0 +1,200 @@
+/*** Pre-Header ***/
+
+@media screen and (max-width: 1200px) {
+  header {
+    .pre-header #block-contactinfo ul.contact-info {
+      margin: 12px 0;
+
+      li {
+        margin: 0 10px;
+      }
+    }
+    #navbar-collapse nav {
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 995px) {
+  header .pre-header #block-contactinfo ul.contact-info {
+    text-align: left;
+    padding: 0;
+
+    li {
+      margin: 0 5px; 
+      &:before {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  header .pre-header #block-languageswitcher ul {
+    padding-left: 5px;
+    margin: 0;
+  }
+
+  header #navbar-collapse .logo {
+    margin: 6px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .navbar-header {
+    .logo, .name {
+      display: none;
+    } 
+  }
+}
+
+@media screen and (max-width: 767px) {
+  header {
+    .pre-header {
+      display: block;
+      vertical-align: top;
+      text-align: center;
+      #block-contactinfo ul.contact-info {
+        li {
+          margin: 0 10px;
+          &:first-child {
+            display: none;
+          }
+        }
+      }
+    }
+    .navbar-header {
+      display: block;
+      background-color: $navbar_color;
+      
+      .container {
+        float: left;
+        .site-branding-top {
+          .logo {
+            display: inline-block;
+            margin: 0;
+            padding: 10px 60px 10px 30px;
+            img {
+              width: 60px;
+            }
+          }
+        }
+      }
+      button {
+        float: right;
+        margin-top: 15px;
+      }
+    }
+    #navbar-collapse {
+      width: 100%;
+      height: auto !important;
+      // padding: 30px;
+
+      .logo, .name {
+        display: none;
+      }
+
+      a {
+        padding-top: 20px; 
+        padding-bottom: 20px; 
+        transform: none !important;
+        -webkit-transform: none !important;
+        -moz-transform: none !important;
+        -ms-transform: none !important;
+        -o-transform: none !important;
+      }
+
+      #block-mainnavigation-4 {
+        width: 100%;
+        float: left;
+        .navbar-nav {
+          display: block;
+          width: 100%;
+          text-align: left;
+
+          li {
+            &.open {
+              > a {
+                display: inline-block;
+                vertical-align: top;
+              } 
+              > ul {
+                position: absolute;
+                top: 0;
+                left: 120px;              
+                background-color: $white_blue;
+                padding: 5px;
+                border-radius: 4px;
+
+                li {
+                  &.expanded ul {
+                    display: block;
+                    padding: 0;
+                  }
+                  &.open ul {
+                    position: relative;
+                    left: 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    .footer_1 {
+      margin-bottom: 50px;
+      #mc_embed_signup .button {
+        width: initial;
+      }
+    }
+    .footer_3 {
+      margin-top: 50px;
+      padding-left: 15px !important;
+    }
+    .footer_4 {
+      margin-top: 50px;
+      width: 80%;
+    }
+    a:hover {
+      transform: none !important;
+      -webkit-transform: none !important;
+      -moz-transform: none !important;
+      -ms-transform: none !important;
+      -o-transform: none !important;
+    }
+  }
+}
+
+@media screen and (max-width: 609px) {
+  header .pre-header #block-languageswitcher ul {
+    display: none;
+  }
+  // header .pre-header #block-contactinfo ul.contact-info li {
+  //   a {
+  //     display: none;
+  //   }
+  //   &.fa-phone:before {
+  //     font-size: 30px;
+  //     vertical-align: inherit;
+  //   }
+  // }
+}
+
+@media screen and (max-width: 534px) {
+  header {
+    .pre-header {
+      #block-contactinfo ul.contact-info {
+        margin: 20px 0;
+        li {
+          display: block;
+          margin: 10px 0;
+        }
+      }
+    }
+    .navbar-header .container .site-branding-top .logo {
+      padding: 10px;
+    }
+  }
+}

@@ -1,0 +1,69 @@
+<?php
+/**
+ * @file
+ * Bootstrap sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+// use Drupal\Core\Template;
+use Drupal\Core\Form\FormStateInterface;
+
+
+/** Implements template_preprocess_field **/
+// function our_custom_theme_preprocess_field(&$variables, $hook) {
+//  $element = $variables['element'];
+// //  kint($element['#items']);
+// //   kint($element);
+//   if ($element['#field_name'] == 'field_contact_form') {
+//     // kint($element[0]['field_your_phone_number']['widget'][1]);
+//     // $element[0]['field_your_phone_number']['widget'][1]= "";
+//     // $element[0]['field_your_message']['#prefix'] = '<div class="col2">';
+//     // $element[0]['field_your_message']['#suffix'] = '</div>';
+//     // $variables['items'][0]['#prefix'] = '<div class="col2">';
+//     // $variables['items'][0]['#suffix'] = '</div>';
+//   }
+// }
+
+function our_custom_theme_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+    if($form_id == "contact_message_contact_form_form"){
+        // kint($form);
+        $form['#prefix'] = '<div class="full-contact-form col-sm-8">';
+        $form['#suffix'] = '</div>';
+    }
+
+    if ($form_id == 'comment_comment_form') {
+      $form['author']['name']['#required'] = TRUE;
+    }
+  //  return $form;
+}
+
+/** Implements template_preprocess_views_view_unformatted **/
+// function our_custom_theme_preprocess_views_view_unformatted(&$variables) {
+//   $view = $variables['view'];
+//   $rows = $variables['rows'];
+//   $style = $view->style_plugin;
+//   $options = $style->options;
+
+//   $variables['default_row_class'] = !empty($options['default_row_class']);
+//   echo'<a href="/home">';
+//   foreach ($rows as $id => $row) {
+//     $variables['rows'][$id] = array();
+//     $variables['rows'][$id]['content'] = $row;
+//     $variables['rows'][$id]['attributes'] = new Attribute();
+//     if ($row_class = $view->style_plugin->getRowClass($id)) {
+//       $variables['rows'][$id]['attributes']->addClass($row_class);
+//     }
+//   }
+//   echo'</a>';
+// }
+
+/** Implements template_preprocess_views_view_fields **/
+
+// function our_custom_theme_preprocess_views_view_fields(&$variables) {
+//     $view = $variables['view'];
+//     $id = $view->storage->id();
+
+//     if($id == 'blog') {
+//       //  kint($variables['fields']['type']);
+//     }
+// }

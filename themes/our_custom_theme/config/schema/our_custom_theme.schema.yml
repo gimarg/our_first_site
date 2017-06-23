@@ -1,0 +1,5 @@
+# Schema for the theme setting configuration file of the THEMETITLE theme.
+
+our_custom_theme.settings:
+  type: theme_settings
+  label: 'our_custom_theme settings'

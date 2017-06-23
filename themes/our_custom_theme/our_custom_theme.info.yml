@@ -1,0 +1,29 @@
+core: 8.x
+type: theme
+base theme: bootstrap
+
+name: 'our_custom_theme'
+description: 'Uses the Bootstrap framework Sass source files and must be compiled (not for beginners).'
+package: 'Bootstrap'
+
+regions:
+  admin_bar: 'Admin Tools Bar'
+  pre_header: 'Top Bar'
+  navigation: 'Navigation'
+  navigation_collapsible: 'Navigation (Collapsible)'
+  # header: 'Header'
+  highlighted: 'Highlighted'
+  sidebar_left: 'Left Sidebar'
+  content: 'Content'
+  sidebar_right: 'Right Sidebar'
+  pre_footer: 'Footer Above'
+  footer_col1: 'Footer 1'
+  footer_col2: 'Footer 2'
+  footer_col3: 'Footer 3'
+  footer_col4: 'Footer 4'
+
+
+libraries:
+  - 'our_custom_theme/global-styling'
+  - 'our_custom_theme/bootstrap-scripts'
+  - 'our_custom_theme/font-awesome'
