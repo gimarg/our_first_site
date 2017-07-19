@@ -1,0 +1,182 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ *
+ * Available variables:
+ * - node: The node entity with limited access to object properties and methods.
+     Only "getter" methods (method names starting with "get", "has", or "is")
+     and a few common methods such as "id" and "label" are available. Calling
+     other methods (such as node.delete) will result in an exception.
+ * - label: The title of the node.
+ * - content: All node items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - author_picture: The node author user entity, rendered using the "compact"
+ *   view mode.
+ * - metadata: Metadata for this node.
+ * - date: Themed creation date field.
+ * - author_name: Themed author name field.
+ * - url: Direct URL of the current node.
+ * - display_submitted: Whether submission information should be displayed.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - node: The current template type (also known as a "theming hook").
+ *   - node--type-[type]: The current node type. For example, if the node is an
+ *     "Article" it would result in "node--type-article". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
+ *     teaser would result in: "node--view-mode-teaser", and
+ *     full: "node--view-mode-full".
+ *   The following are controlled through the node publishing options.
+ *   - node--promoted: Appears on nodes promoted to the front page.
+ *   - node--sticky: Appears on nodes ordered above other non-sticky nodes in
+ *     teaser listings.
+ *   - node--unpublished: Appears on unpublished nodes visible only to site
+ *     admins.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - content_attributes: Same as attributes, except applied to the main
+ *   content tag that appears in the template.
+ * - author_attributes: Same as attributes, except applied to the author of
+ *   the node tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - view_mode: View mode; for example, "teaser" or "full".
+ * - teaser: Flag for the teaser state. Will be true if view_mode is 'teaser'.
+ * - page: Flag for the full page state. Will be true if view_mode is 'full'.
+ * - readmore: Flag for more state. Will be true if the teaser content of the
+ *   node cannot hold the main body content.
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @ingroup templates
+ *
+ * @see template_preprocess_node()
+ *
+ * @todo Remove the id attribute (or make it a class), because if that gets
+ *   rendered twice on a page this is invalid CSS for example: two lists
+ *   in different view modes.
+ */
+#}
+{%
+  set classes = [
+    node.bundle|clean_class,
+    node.isPromoted() ? 'is-promoted',
+    node.isSticky() ? 'is-sticky',
+    not node.isPublished() ? 'is-unpublished',
+    view_mode ? view_mode|clean_class,
+    'clearfix', 'about-company',
+  ]
+%}
+<article{{ attributes.addClass(classes) }}>
+
+  {{ title_prefix }}
+  {% if not page %}
+    <h2{{ title_attributes }}>
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h2>
+  {% endif %}
+  {{ title_suffix }}
+
+  {% if display_submitted %}
+    <footer>
+      {{ author_picture }}
+      <div{{ author_attributes.addClass('author') }}>
+        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+        {{ metadata }}
+      </div>
+    </footer>
+  {% endif %}
+
+  <div{{ content_attributes.addClass('content') }}>
+    {# {{ content }} #}
+
+      <div class="normal-section about-who">
+        <div class="main-about">
+        {# <h3>Ποιοι είμαστε</h3> #}
+        <p>Η AppDate δημιουργήθηκε από μια ομάδα προγραμματιστών με την ίδια φιλοσοφία και το ίδιο όραμα:
+        <span>αγάπη προς την τεχνολογία, σεβασμός προς τον πελάτη
+        και αναβάθμιση της ελληνικής αγοράς με καινοτόμες τεχνολογικές ιδέες και εργαλεία.</span></p>
+        </div>
+        <div class="sub-about">
+        <h3>Τι κάνουμε</h3>
+        <p>Το μότο μας απαντά στην ερώτηση: Εκσυγχρονίζουμε επιχειρήσεις!</p>
+        <a href="/services#services" title="Υπηρεσίες">Δείτε τις υπηρεσίες μας</a>
+        </div>
+        <div class="sub-about">
+        <h3>Πώς δουλεύουμε</h3>
+        <p>Κάθε προγραμματιστής μας διαθέτει χρόνια εμπειρίας και εξειδικεύεται σε συγκεκριμένες τεχνολογίες.</p>
+        {# Οι project managers καθοδηγούν τους προγραμματιστές σύμφωνα με τις ανάγκες των πελατών, 
+        με τους οποοίους βρίσκονται σε διαρκή επικοινωνία.  #}
+        <a href="/services#work" title="Πλάνο">Δείτε το πλάνο ανάπτυξης των έργων μας</a>
+        </div>
+        <div class="sub-about">
+        <h3>Γιατί αρχίσαμε</h3>
+        <p>Το πάθος για νέες ιδέες και η έλλειψή τους από την ελληνική αγορά μας οδήγησαν στη δημιουργία της AppDate.</p>
+        <a href="/services#tools" title="Εργαλεία">Δείτε τις τεχνολογίες που χρησιμοποιούμε</a>
+        </div>
+      </div>
+
+      <div class="parallax parallax--parallax1">
+      <div class="parallax__bg"></div>
+
+      <div class="parallax__content">
+      <h2>AppDate your business</h2>
+      </div>
+      </div>
+
+      <div class="normal-section about-what">
+      <div class="sub-about-section2">
+      <h3>Ποιός είναι ο στόχος μας</h3>
+      <p>Θέλουμε να βοηθήσουμε την επιχείρισή σας, όσο μικρή ή μεγάλη κι αν είναι, να εκσυγχρονιστεί και να συμβαδίσει
+      με τις τελευταίες τάσεις της αγοράς.
+      Εξειδικευόμαστε σε πληθώρα τεχνολογιών κι έτσι μπορούμε να υλοποιήσουμε οποιαδήποτε ιδέα ή ανάγκη σας όσο απαιτητική κι αν φαίνεται.</p>
+      </div>
+      <div class="sub-about-section2">
+      <h3>Γιατί εμάς</h3>
+      <p>Βασική αρχή μας είναι η υπεθυνότητα και η ειλικρίνια προς τον πελάτη, γι'αυτό συζητάμε μαζί σας και το έργο που θα παραλάβετε θα είναι αποτέλεσμα μιας καλής συνεργασίας.</p> 
+      <ul>
+      <li class="icon-forward">Διαθέτουμε 24ωρο help desk ώστε να ανταποκρινόμαστε άμεσα σε κάθε σας ανάγκη. </li>
+      <li class="icon-forward">Δίνουμε προσοχή ακόμα και στις μικρές λεπτομέρειες ώστε το αποτέλεσμα να είναι ακόμα καλύτερο απ' όσο θα θέλατε.</li>
+      <li class="icon-forward">Δεν χρεώνουμε υπέρογκα ποσά για προσθήκη απλών χαρακτηριστικών και δεν υποσχόμαστε πλασματικές "πρώτες θέσεις" σε αναζητήσεις Google.</li>
+      <li class="icon-forward">Οι τιμές των προϊόντων μας είναι χαμηλές χωρίς να κάνουμε εκπτώσεις στην ποιότητα. </li>
+      <li class="icon-forward">Οι εφαρμογές μας έχουν δημιουργηθεί με 100% προσοχή στην ασφάλεια και την ευκολία στη χρήση.</li>
+      </ul>
+      </div>
+      </div>
+
+      <div class="parallax parallax--parallax2">
+      <div class="parallax__bg"></div>
+
+      <div class="parallax__content">
+      <h2>Επισκεφτείτε το blog μας για να μαθαίνετε νέα για τις τεχνολογικές τάσεις της αγοράς</h2>
+      </div>
+      </div>
+
+      <div class="normal-section about-where">
+      <div class="sub-about-section2">
+      <h3>Πού θα μας βρείτε</h3>
+      <p>Τα γραφεία της εταιρείας μας βρίσκονται στο Μαρούσι, Λεωφ.Μεσογείων 131</p>
+      <p>Μπορείτε να επικοινωνήσετε μαζί μας τηλεφωνικά στα κινητά <a href="tel:+306978190690">6978190690</a> και <a href="tel:+306989405061">6989405061</a>, 
+      ηλεκτρονικά στο email <a href="mailto:appdate.gr@gmail.com">appdate.gr@gmail.com</a>
+      ή συμπληρώνοντας τη φόρμα επικοινωνίας <a href="/contact">εδώ</a></p>
+      </div>
+      </div>
+
+      <div class="parallax parallax--parallax3">
+      <div class="parallax__bg"></div>
+
+      <div class="parallax__content">
+      <h2>Επικοινωνήστε μαζί μας για να υλοποιήσουμε την ιδέα σας</h2>
+      </div>
+    </div>
+  </div>
+
+</article>

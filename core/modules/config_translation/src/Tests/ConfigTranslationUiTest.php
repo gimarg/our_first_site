@@ -12,7 +12,6 @@ use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\filter\Entity\FilterFormat;
 use Drupal\language\Entity\ConfigurableLanguage;
-//++
 use Drupal\node\Entity\NodeType;
 use Drupal\simpletest\WebTestBase;
 
@@ -945,47 +944,6 @@ class ConfigTranslationUiTest extends WebTestBase {
    * Test text_format translation.
    */
   public function testTextFormatTranslation() {
-
-    /**
-   * Tests field translation for node fields.
-   */
-  public function testNodeFieldTranslation() {
-    NodeType::create(['type' => 'article', 'name' => 'Article'])->save();
-
-    $field_name = 'translatable_field';
-    $field_storage = FieldStorageConfig::create([
-      'field_name' => $field_name,
-      'entity_type' => 'node',
-      'type' => 'text',
-    ]);
-
-    $field_storage->setSetting('translatable_storage_setting', 'translatable_storage_setting');
-    $field_storage->save();
-    $field = FieldConfig::create([
-      'field_name' => $field_name,
-      'entity_type' => 'node',
-      'bundle' => 'article',
-    ]);
-    $field->save();
-
-    $this->drupalLogin($this->translatorUser);
-
-    $this->drupalGet("/entity_test/structure/article/fields/node.article.$field_name/translate");
-    $this->clickLink('Add');
-
-    $form_values = [
-      'translation[config_names][field.field.node.article.translatable_field][description]' => 'FR Help text.',
-      'translation[config_names][field.field.node.article.translatable_field][label]' => 'FR label',
-    ];
-    $this->drupalPostForm(NULL, $form_values, 'Save translation');
-    $this->assertText('Successfully saved French translation.');
-
-    // Check that the translations are saved.
-    $this->clickLink('Add');
-    $this->assertRaw('FR label');
-  }
-
-
     $this->drupalLogin($this->adminUser);
     /** @var \Drupal\Core\Config\ConfigFactoryInterface $config_factory */
     $config_factory = $this->container->get('config.factory');
@@ -1074,6 +1032,45 @@ class ConfigTranslationUiTest extends WebTestBase {
       ->get('config_translation_test.content')
       ->get('content');
     $this->assertEqual($expected, $actual);
+  }
+
+  /**
+   * Tests field translation for node fields.
+   */
+  public function testNodeFieldTranslation() {
+    NodeType::create(['type' => 'article', 'name' => 'Article'])->save();
+
+    $field_name = 'translatable_field';
+    $field_storage = FieldStorageConfig::create([
+      'field_name' => $field_name,
+      'entity_type' => 'node',
+      'type' => 'text',
+    ]);
+
+    $field_storage->setSetting('translatable_storage_setting', 'translatable_storage_setting');
+    $field_storage->save();
+    $field = FieldConfig::create([
+      'field_name' => $field_name,
+      'entity_type' => 'node',
+      'bundle' => 'article',
+    ]);
+    $field->save();
+
+    $this->drupalLogin($this->translatorUser);
+
+    $this->drupalGet("/entity_test/structure/article/fields/node.article.$field_name/translate");
+    $this->clickLink('Add');
+
+    $form_values = [
+      'translation[config_names][field.field.node.article.translatable_field][description]' => 'FR Help text.',
+      'translation[config_names][field.field.node.article.translatable_field][label]' => 'FR label',
+    ];
+    $this->drupalPostForm(NULL, $form_values, 'Save translation');
+    $this->assertText('Successfully saved French translation.');
+
+    // Check that the translations are saved.
+    $this->clickLink('Add');
+    $this->assertRaw('FR label');
   }
 
   /**

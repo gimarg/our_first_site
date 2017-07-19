@@ -18,6 +18,12 @@
         }
       );
 
+      //Delayed body text in front page normal section
+      $( document ).ready(function() {
+        $("#block-normalsection .field--name-body ul li:first-child").delay(1000).fadeIn(500).css({"left":"-1200px"}).animate({"left":"0px"}, 2000);
+        $("#block-normalsection .field--name-body ul li:nth-child(2)").delay(2500).fadeIn(500).css({"left":"-1200px"}).animate({"left":"0px"}, 2000);
+        $("#block-normalsection .field--name-body ul li:last-child").delay(4000).fadeIn(500).css({"left":"-1200px"}).animate({"left":"0px"}, 2000);
+    });
       // if($('#navbar-collapse').hasClass('in')) {
 
       // }
@@ -114,17 +120,29 @@
         $(window).scroll(function() {
           //Sticks tabs to top
           var distanceY = window.pageYOffset || document.documentElement.scrollTop,
-              shrinkOn = 200;
-          if (distanceY > shrinkOn) {
+              shrinkOn = 200, shrinkOff = 3000;
+              // console.log('scrolltop'+document.documentElement.scrollTop);
+              // console.log('wind page offs'+window.pageYOffset);
+              // console.log('dist'+distanceY);
+          if (distanceY > shrinkOn && distanceY < shrinkOff) {
+            $('#service-tabs').css('display','block');
             $('#service-tabs').addClass("fixed");
             if ($('body').hasClass('user-logged-in')) {
               $('.fixed').css('top','80px');
             }
-          } else {
+          } else if (distanceY < shrinkOn) {
+            if ($('body').hasClass('user-logged-in')) {
+              $('.fixed').css('top','0');
+            }
             if ($('#service-tabs').hasClass("fixed")) {
                 $('#service-tabs').removeClass("fixed");
             }
-          }  
+          } else if (distanceY > shrinkOff) {
+            $('#service-tabs').css('display','none');
+            if ($('body').hasClass('user-logged-in')) {
+              $('.fixed').css('top','0');
+            }
+          }
         });
 
         // //Creates active class
@@ -137,11 +155,11 @@
           $('.tab-header ul li').on('click', function (e) {
               e.preventDefault();
 
-              if ($('body').hasClass('user-logged-in')) {
-                $('html, body').animate({
-                    scrollTop: $(window).scrollTop() - 100
-                });
-              }
+              // if ($('body').hasClass('user-logged-in')) {
+              //   $('html, body').animate({
+              //       scrollTop: $(window).scrollTop() - 100
+              //   });
+              // }
 
               $('#service-tabs').addClass("fixed");
 
@@ -175,7 +193,69 @@
           });
         });
       });
+
+      $("#block-mainnavigation-4 li a").removeAttr("data-toggle");
+
+      if ($('body').hasClass('path-contact')) {
+        function initMap() {
+          var uluru = {lat: 38.041071, lng: 23.819751};
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 16,
+            center: uluru
+          });
+          var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+          });
+        }
+        google.maps.event.addDomListener(window, "load", initMap);
+      }
+
+      // if ($('body').hasClass('path-frontpage')) {
+      //   var url = $("#block-views-block-frontpage-slideshow-block-1 .active-slide .parallax__bg").text();
+      //   alert(url);
+      //   $("#block-views-block-frontpage-slideshow-block-1 .active slide .parallax__bg").css('background','url('+url+')');
+      // }
+      // var controller = new ScrollMagic.Controller();
+      // var scene1 = new ScrollMagic.Scene({
+      //     triggerElement: '.parallax--parallax1',
+      //     triggerHook: 1,
+      //     duration: "100%"
+      // })
+      // .setTween(TweenMax.from('.parallax--parallax1 .parallax__bg', 1, {y: '-50%', ease:Power0.easeNone}))
+      // .addTo(controller);
+
+      // var scene2 = new ScrollMagic.Scene({
+		  //   triggerElement: '.parallax--parallax2',
+		  //   triggerHook: 1,
+		  //   duration: "100%"
+		  // })
+	    // .setTween(TweenMax.from('.parallax--parallax2 .parallax__bg', 1, {y: '-50%', ease:Power0.easeNone}))
+	    // .addTo(controller);
+
+      var controller = new ScrollMagic.Controller();
+
+      var blocks = [".parallax--parallax1", ".parallax--parallax2", ".parallax--parallax3", "#block-views-block-frontpage-slideshow-block-1"];
+
+      blocks.forEach(function (block, index) {
+
+          var $bg = $(block).find('.parallax__bg');
+          var $content = $(block).find('.parallax__content');
+
+          var tl = new TimelineMax();
+          tl
+              .from($bg, 2, {y: '-50%', ease: Power0.easeNone}, 0.2)
+              .from($content, 2, {y: '-50%', ease: Power0.easeNone}, 0.2)
+          ;
+
+          var scene = new ScrollMagic.Scene({
+              triggerElement: block,
+              triggerHook: 1,
+              duration: "100%"
+          })
+          .setTween(tl)
+          .addTo(controller);
+      });
     }
   };
-
 })(jQuery, Drupal, drupalSettings);

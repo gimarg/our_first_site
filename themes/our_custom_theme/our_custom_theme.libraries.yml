@@ -5,11 +5,15 @@ global-styling:
       //fonts.googleapis.com/css?family=Raleway: { type: external }
       css/style.css: {}
   js:    
+      js/ScrollMagic.min.js: {}
+      js/animation.gsap.min.js: {}
+      js/TweenMax.min.js: {}
       js/our_custom_theme.js: {}
       js/auto-nav.js: {}
-  
+      https://maps.googleapis.com/maps/api/js?key=AIzaSyD_F3HIlwcn5mMLSSayP3KLGUH3NQ_561I&callback=initMap: {type: external, attributes: { defer: true, async: true } }
   dependencies:
     - core/jquery
+    - core/drupal
     - core/drupalSettings
 
 bootstrap-scripts:

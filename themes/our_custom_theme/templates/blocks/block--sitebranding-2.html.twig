@@ -25,6 +25,8 @@
     {% if site_name %}
       <a class="name" href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
     {% endif %}
-    {{ site_slogan }}
+    {% if site_slogan %}
+      <a class="slogan" href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_slogan }}</a>
+    {% endif %}
   {% endblock %}
 </div>

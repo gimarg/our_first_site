@@ -17,16 +17,16 @@ $icon-font-path: '../bootstrap/assets/fonts/bootstrap/';
 /* Icons */
 @font-face {
   font-family: 'icomoon';
-  src:  url('../fonts/Icomoon/icomoon.eot?ypdo7h');
-  src:  url('../fonts/Icomoon/icomoon.eot?ypdo7h#iefix') format('embedded-opentype'),
-    url('../fonts/Icomoon/icomoon.ttf?ypdo7h') format('truetype'),
-    url('../fonts/Icomoon/icomoon.woff?ypdo7h') format('woff'),
-    url('../fonts/Icomoon/icomoon.svg?ypdo7h#icomoon') format('svg');
+  src:  url('../fonts/Icomoon/icomoon.eot?lbqv0w');
+  src:  url('../fonts/Icomoon/icomoon.eot?lbqv0w#iefix') format('embedded-opentype'),
+    url('../fonts/Icomoon/icomoon.ttf?lbqv0w') format('truetype'),
+    url('../fonts/Icomoon/icomoon.woff?lbqv0w') format('woff'),
+    url('../fonts/Icomoon/icomoon.svg?lbqv0w#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="icon-"]:before, [class*=" icon-"]:before {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: none;
@@ -41,15 +41,29 @@ $icon-font-path: '../bootstrap/assets/fonts/bootstrap/';
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-publish:before {
+  content: "\e901";
+}
+.icon-tools:before {
+  content: "\e900";
+}
 .icon-undo:before {
   content: "\e965";
 }
+.icon-forward:before {
+  content: "\e969";
+}
+.icon-heart:before {
+  content: "\e9da";
+}
 
 /* Colors */
-$navbar_color: #2C3866;
-$white_blue: #e9edfb;
+// $navbar_color: #2C3866;
+$navbar_color: #141A33;
+$white_blue: #f7f8fd;
 // darken(#e9edfb, 1%);
-$light_background: rgba(218,220,226,0.5);
+$light_background: #dadce2;
+$light_background_opac: rgba(218,220,226,0.5);
 $bullet_color: #cbd3e7;
 $footer_above_color: #13182B;
 $footer_color: #58607F;

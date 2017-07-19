@@ -95,7 +95,7 @@
     </li>
     {% if content.field_testimonial_link.0['#url'] %}
       <li>
-      <a href="{{ content.field_testimonial_link.0['#url'] }}">View Testimonial</a>
+      <a href="{{ content.field_testimonial_link.0['#url'] }}">{{ 'View Testimonial'|trans }}</a>
         {#{{ content.field_testimonial_link }}#}
       </li>
     {% endif %}

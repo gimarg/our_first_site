@@ -4,6 +4,24 @@
 //     padding: 0;
 //   }
   .services-page {
+    background-color: $white_blue;
+    .parallax {
+      height: 350px;
+    }
+    .parallax--parallax1 .parallax__bg {
+      background: url('../images/websites.jpg');
+    }
+    .parallax--parallax2 .parallax__bg  {
+      background: url('../images/computer&mobile.jpg');
+    }
+    .parallax--parallax3 .parallax__bg  {
+      background: url('../images/smartphone.jpg');
+    }
+    .parallax__content h2 {
+      // background-color: rgba(0,0,0,0.4);
+      padding: 20px;
+      margin-bottom: 0;
+    }
     .bullets-container {
       width: 100%;
       height: 20px;
@@ -17,21 +35,27 @@
     }
     /* Style the tab buttons */
     #service-tabs {
+      position: absolute;
+      top: 0;
+      z-index: 3;
+      width: 100%;
       &.fixed {
         position: fixed;
         top: 0;
-        // width: 100%;
+        z-index: 3;
+        width: 100%;
 
         .tab-header {
           padding-top: 0;
         }
 
         .tab-header ul li .tablink {
-          padding: 20px 16px;
+          padding: 5px 16px;
+          // padding: 10% 18%;
         }
 
         li:not(.active) .tablink {
-          background-color: rgba(44, 56, 102, 0.88);
+          background-color: rgba(20, 26, 51, 0.8);
         }
       }
       &.floating-block-active {
@@ -43,7 +67,8 @@
         border-radius: 4px;
         overflow: hidden;
         padding: 10px 18px 30px 18px;
-        width: 95%;
+        // width: 95%;
+        width: 100%;
 
         ul {
           padding: 0;
@@ -59,7 +84,6 @@
               .tablink {
                 text-align: center;
                 padding: 35px 16px;
-                font-size: 17px;
                 width: 100%;
                 height: 100%;
                 display: inline-block;
@@ -121,16 +145,132 @@
   } 
     /* Set default styles for tab content */
     .tabcontent {
-        // display: none;
-        letter-spacing: 0.7px;
-        font-size: 16px;
-        color: black;
-        // background-color: black;
-        text-align: justify;
-        padding: 75px;
-        -webkit-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.8);
-        -moz-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.8);
-        box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.8);
+      background-color: $white_blue;
+      // display: none;
+      letter-spacing: 0.7px;
+      font-size: 16px;
+      color: $text_dark;
+      // background-color: black;
+      text-align: justify;
+      padding: 120px 75px 30px 75px;
+      -webkit-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.8);
+      -moz-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.8);
+
+      &#services {
+        padding: 30px 75px;
+        margin-top: 110px;
+
+        .service {
+          width: 33%;
+          display: inline-block;
+          padding: 20px;
+          vertical-align: top;
+          text-align: left;
+        }
+      }
+
+      &#work {
+        padding: 30px 75px;
+
+        .stage {
+          width: 48%;
+          display: inline-block;
+          padding: 20px;
+          vertical-align: top;
+          text-align: left;
+
+          &:first-child {
+            float: left;
+          }
+        }
+      }  
+
+      &#tools {
+        padding: 30px 75px;
+
+        .tool {
+          width: 33%;
+          display: inline-block;
+          padding: 20px;
+          vertical-align: top;
+          text-align: left;
+
+          &.drupal-tool {
+            h3 {
+              display: block;
+              position: relative;
+              &:after {
+                content: '';
+                background: url(../images/logos/Drupal_logo.png);
+                width: 20%;
+                height: 150%;
+                display: inline-block;
+                position: absolute;
+                right: 5%;
+                top: -5px;
+                background-size: 100%;
+                background-repeat: no-repeat;
+              }
+            }
+          }
+          &.java-tool {
+            h3 {
+              display: block;
+              position: relative;
+              &:after {
+                content: '';
+                background: url('../images/logos/java_ee.png');
+                width: 20%;
+                height: 150%;
+                display: inline-block;
+                position: absolute;
+                right: 5%;
+                top: -5px;
+                background-size: 100%;
+                background-repeat: no-repeat;
+              }
+            }
+          }
+          &.mean-tool {
+            h3 {
+              display: block;
+              position: relative;
+              &:after {
+                content: '';
+                background: url('../images/logos/mean.png');
+                width: 20%;
+                height: 77%;
+                display: inline-block;
+                position: absolute;
+                right: 8%;
+                top: -1px;
+                background-size: 100%;
+                background-repeat: no-repeat;
+              }
+            }
+          }
+          &.ionic-tool {
+            h3 {
+              display: block;
+              position: relative;
+              &:after {
+                content: '';
+                background: url('../images/logos/ionic-logo.png');
+                width: 33%;
+                height: 190%;
+                display: inline-block;
+                position: absolute;
+                right: 5%;
+                top: -5px;
+                background-size: contain;
+                background-repeat: no-repeat;
+              }
+            }
+          }
+        }
+      } 
+
         // &:nth-child(odd) {
         //   background-color: $footer_above_color; 
         // }

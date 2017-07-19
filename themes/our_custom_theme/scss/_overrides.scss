@@ -81,7 +81,17 @@ p:last-child,
 
 body, .main {
   font-family: $font2;
+
+  &.path-blog, &.path-projects, &.path-contact {
+    .main-content {
+      margin: 50px 0;
+    }
+  }
   // background-color: $light_background;
+}
+
+.main-container {
+  overflow: hidden;
 }
 
 .view-header {
@@ -295,7 +305,7 @@ body, .main {
       border: none;
     }
   }
-  #edit-comment-body-0-format {
+  #edit-comment-body-0-format, #edit-field-thema-0-format {
     display: none;
   }
 
@@ -332,7 +342,7 @@ body, .main {
     }
 
     .button--primary {
-      float: right;
+      // float: right;
       margin-left: 10px;
       background-color: $gold;
       color: white;
@@ -358,8 +368,9 @@ header {
   }
   .pre-header {
     // height: 30px;
-    // background-color: $light_background;
+    background-color: $footer_above_color;
     font-family: $font;
+    color: white;
 
     #block-contactinfo {
       display: inline-block;
@@ -377,13 +388,25 @@ header {
 
           a {
             text-decoration: none;
-            color: darken($navbar_color, 5%);
+            color: $text_dark;
+            color: white;
             font-weight: bold;
             font-size: 17px;
+            display: inline-block;
             &:hover {
-              text-decoration: none;
-              text-shadow: 1px 1px 2px darken($navbar_color, 10%);
+              color: $white_blue;
+              transform: scale(1.04);
+              -webkit-transform: scale(1.04);
+              -moz-transform: scale(1.04);
+              -ms-transform: scale(1.04);
+              -o-transform: scale(1.04);
+              // text-shadow: 2px 2px 1px darken($navbar_color, 20%);
+              text-shadow: 1px 1px 13px white;
             }
+            // &:hover {
+            //   text-decoration: none;
+            //   text-shadow: 1px 1px 2px darken($navbar_color, 10%);
+            // }
           }
 
           &.fa-phone:before {
@@ -403,7 +426,7 @@ header {
 
           &:before {
             margin-right: 10px;
-            color: darken($navbar_color, 30%);
+            color: $white_blue;
           }
         }
       }
@@ -430,38 +453,81 @@ header {
 
   .navbar-header .site-branding-top {
     a {
-      color: white;
-      font-weight: bold;
-      transition: 0.2s ease-in-out;
-      -webkit-transition: 0.2s ease-in-out;
-      -moz-transition: 0.2s ease-in-out;
-      -ms-transition: 0.2s ease-in-out;
-      -o-transition: 0.2s ease-in-out;
+      // color: white;
+      // font-weight: bold;
+      // transition: 0.2s ease-in-out;
+      // -webkit-transition: 0.2s ease-in-out;
+      // -moz-transition: 0.2s ease-in-out;
+      // -ms-transition: 0.2s ease-in-out;
+      // -o-transition: 0.2s ease-in-out
+      &.name {
+        font-family: rockwell;
+        font-size: 25px;
+        margin-top: 23px;
+        color: $footer_above_color;
+        padding-left: 0;
+        &:hover {
+          transform: none;
+          color: $footer_above_color;
+        }
+      }
+
+      &.slogan {
+        font-family: rockwell;
+        color: $footer_above_color;
+        position: relative;
+        top: 16px;
+        left: -55px;
+      }
 
       &:hover, &:focus, &:active {
-        color: $white_blue;
+        text-decoration: none;
         transform: scale(1.1);
         -webkit-transform: scale(1.1);
         -moz-transform: scale(1.1);
         -ms-transform: scale(1.1);
         -o-transform: scale(1.1);
-        // text-shadow: 2px 2px 1px darken($navbar_color, 20%);
-        text-shadow: 1px 1px 2px darken($navbar_color, 20%), 
-                2px 2px 2px darken($navbar_color, 20%), 
-                3px 3px 2px darken($navbar_color, 20%), 
-                4px 4px 2px darken($navbar_color, 20%);
+        text-shadow: 1px 1px 2px darken($navbar_color, 10%);
       }
     }
   }
 
   #navbar-collapse {
     font-family: $font;
-    background-color: $navbar_color;
+    background-color: $white_blue;
+    color: #141A33;
     padding: 0;
     height: 111px !important;
     -webkit-transition: all 0.3s linear;
     transition: all 0.1s linear;
 
+    .navbar-brand {
+      font-family: rockwell;
+      font-size: 32px;
+      margin-top: 23px;
+      color: $footer_above_color;
+      padding-left: 0;
+
+      &:hover {
+        transform: none;
+        color: $footer_above_color;
+      }
+    }
+    .navbar-text {
+      top: 48px;
+      position: relative;
+      left: -94px;
+      font-family: rockwell;
+      color: $footer_above_color;
+
+      &:hover {
+        transform: none;
+      }
+    }
+
+    .logo:hover {
+      transform: none;
+    }
 
     &.nav-scrolled {
       position: fixed !important;
@@ -480,7 +546,8 @@ header {
     }
 
     a {
-      color: white;
+      // color: white;
+      color: $text_dark;
       font-weight: bold;
       transition: 0.2s ease-in-out;
       -webkit-transition: 0.2s ease-in-out;
@@ -488,25 +555,34 @@ header {
       -ms-transition: 0.2s ease-in-out;
       -o-transition: 0.2s ease-in-out;
 
+      // &:hover, &:focus, &:active {
+      //   color: $white_blue;
+      //   transform: scale(1.1);
+      //   -webkit-transform: scale(1.1);
+      //   -moz-transform: scale(1.1);
+      //   -ms-transform: scale(1.1);
+      //   -o-transform: scale(1.1);
+      //   // text-shadow: 2px 2px 1px darken($navbar_color, 20%);
+      //   text-shadow: 1px 1px 2px darken($navbar_color, 20%), 
+      //           2px 2px 2px darken($navbar_color, 20%), 
+      //           3px 3px 2px darken($navbar_color, 20%), 
+      //           4px 4px 2px darken($navbar_color, 20%);
+      // }
       &:hover, &:focus, &:active {
-        color: $white_blue;
+        text-decoration: none;
         transform: scale(1.1);
         -webkit-transform: scale(1.1);
         -moz-transform: scale(1.1);
         -ms-transform: scale(1.1);
         -o-transform: scale(1.1);
-        // text-shadow: 2px 2px 1px darken($navbar_color, 20%);
-        text-shadow: 1px 1px 2px darken($navbar_color, 20%), 
-                2px 2px 2px darken($navbar_color, 20%), 
-                3px 3px 2px darken($navbar_color, 20%), 
-                4px 4px 2px darken($navbar_color, 20%);
+        text-shadow: 1px 1px 2px darken($navbar_color, 10%);
       }
     }
     .logo {
       display: inline-block;
       // float: none !important;
       width: 100px;
-      margin: 6px 0 6px 50px;
+      margin: 16px 0 6px 50px;
       img {
         // width: 35%;
         width: 100%;
@@ -525,17 +601,13 @@ header {
 
         > .active > a, > .active > a:hover, > .active > a:focus {
           background-color: initial;
-          color: $white_blue;
+          text-decoration: none;
           transform: scale(1.1);
           -webkit-transform: scale(1.1);
           -moz-transform: scale(1.1);
           -ms-transform: scale(1.1);
           -o-transform: scale(1.1);
-          // text-shadow: 2px 2px 1px darken($navbar_color, 20%);
-          text-shadow: 1px 1px 2px darken($navbar_color, 20%), 
-                  2px 2px 2px darken($navbar_color, 20%), 
-                  3px 3px 2px darken($navbar_color, 20%), 
-                  4px 4px 2px darken($navbar_color, 20%);
+          text-shadow: 1px 1px 2px darken($navbar_color, 10%);
         }
 
         .open ul li a {
@@ -553,17 +625,24 @@ header {
         }
         .open > a, .open > a:hover, .open > a:focus {
           background-color: transparent;
-          color: $white_blue;
-          transform: scale(1.1);
-          -webkit-transform: scale(1.1);
-          -moz-transform: scale(1.1);
-          -ms-transform: scale(1.1);
-          -o-transform: scale(1.1);
-          // text-shadow: 2px 2px 1px darken($navbar_color, 20%);
-          text-shadow: 1px 1px 2px darken($navbar_color, 20%), 
-                  2px 2px 2px darken($navbar_color, 20%), 
-                  3px 3px 2px darken($navbar_color, 20%), 
-                  4px 4px 2px darken($navbar_color, 20%);
+          // color: $white_blue;
+          // transform: scale(1.1);
+          // -webkit-transform: scale(1.1);
+          // -moz-transform: scale(1.1);
+          // -ms-transform: scale(1.1);
+          // -o-transform: scale(1.1);
+          // // text-shadow: 2px 2px 1px darken($navbar_color, 20%);
+          // text-shadow: 1px 1px 2px darken($navbar_color, 20%), 
+          //         2px 2px 2px darken($navbar_color, 20%), 
+          //         3px 3px 2px darken($navbar_color, 20%), 
+          //         4px 4px 2px darken($navbar_color, 20%);
+                    text-decoration: none;
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        text-shadow: 1px 1px 2px darken($navbar_color, 10%);
         }
 
         .dropdown-menu {
@@ -611,6 +690,33 @@ header {
 }
 
 //----- Slideshow -----//
+
+#views_slideshow_cycle_main_frontpage_slideshow-block_1 {
+  .field-content.parallax__bg {
+    z-index: -1;
+  }
+  .views-field-body {
+    float: left;
+    margin-top: 100px;
+    margin-left: 100px;
+    background-color: rgba(255,255,255,0.6);
+    box-shadow: rgba(0, 0, 0, 0.6) 6px 7px 10px;
+    padding: 30px;
+
+    h1 {
+      font-size: 40px;
+      margin-top: 0; 
+    }
+    p {
+      font-size: 24px;
+      display: block;
+
+      span {
+        display: block;
+      }
+    }
+  }
+}
 
 .views-slideshow-controls-bottom {
   text-align: center;
@@ -1031,8 +1137,8 @@ header {
   }
 }
 //Details Block
-#block-detailedcontactinfo {
-  .field--name-body {
+#block-details {
+  // .field--name-body {
     color: white;
     background-color: $footer_above_color;
     border: 1px solid;
@@ -1123,16 +1229,37 @@ header {
         }
       }
     }
-    .addthis_inline_follow_toolbox svg {
-      background-color: $gold !important;
-    }
-  }
+    .at-follow-tbx-element .addthis_toolbox {
+      .at-follow-btn {
+        transition: all 0.2s linear;
+        -webkit-transition: all 0.2s linear;
+        -moz-transition: all 0.2s linear;
+        -ms-transition: all 0.2s linear;
+        -o-transition: all 0.2s linear;
+        &:hover {
+          transform: scale(1.4) !important;
+          -webkit-transform: scale(1.4) !important;
+          -moz-transform: scale(1.4) !important;
+          -ms-transform: scale(1.4) !important;
+          -o-transform: scale(1.4) !important;
+        }
+
+        svg {
+          border: 1px solid $footer_above_color;
+          border-radius: 4px;
+        }
+      }
+      svg {
+        background-color: $gold !important;
+      }
+    }    
+  // }
 }
 
 // Map Block
 
 #block-map {
-  display: inline-block;
+  display: block;
   #map {
     display: inline-block;
     height: 280px;
@@ -1167,10 +1294,15 @@ header {
     padding: 30px;
     overflow: hidden;
 
+    .table-responsive {
+      border: none;
+    }
+
     label, .field-label {
       font-family: $font2;
-      text-shadow: #fff 0px 0px 13px;
+      // text-shadow: #fff 0px 0px 13px;
       margin-top: 5px;
+      letter-spacing: 0.4px;
     }
 
     input, textarea {
@@ -1216,7 +1348,7 @@ header {
       }
 
       .form-control {
-        width: 82.5%;
+        width: 98%;
         display: block;
         float: right;
       }
@@ -1238,7 +1370,7 @@ header {
 
       tbody {
         display: inline-table;
-        width: 80%;
+        width: 67.5%;
         float: right; 
       }
     }

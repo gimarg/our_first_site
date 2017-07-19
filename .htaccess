@@ -187,3 +187,8 @@ AddEncoding gzip svgz
   # Disable Proxy header, since it's an attack vector.
   RequestHeader unset Proxy
 </IfModule>
+
+AuthType Basic
+AuthName "Password Protected Area"
+AuthUserFile C:\wamp64\www\our_drupal_site/.htpasswd
+Require valid-user
