@@ -188,7 +188,11 @@ AddEncoding gzip svgz
   RequestHeader unset Proxy
 </IfModule>
 
-AuthType Basic
-AuthName "Password Protected Area"
-AuthUserFile C:\wamp64\www\our_drupal_site/.htpasswd
-Require valid-user
+#AuthType Basic
+#AuthName "Password Protected Area"
+#AuthUserFile C:\wamp64\www\our_drupal_site/.htpasswd
+#Require valid-user
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]

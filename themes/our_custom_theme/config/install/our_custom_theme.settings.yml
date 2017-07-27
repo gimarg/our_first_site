@@ -13,3 +13,5 @@
 
 # Disable the CDN provider so compiled source files can be used.
 cdn_provider: ''
+features: 
+   favicon:true

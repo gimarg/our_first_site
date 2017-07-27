@@ -73,6 +73,10 @@ p:last-child,
 //   float: none;
 // }
 
+#block-our-custom-theme-tools {
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
   body {
     margin-top: 0px;
@@ -82,7 +86,7 @@ p:last-child,
 body, .main {
   font-family: $font2;
 
-  &.path-blog, &.path-projects, &.path-contact {
+  &.path-blog, &.path-projects, &.path-contact, &.page-node-type-article, &.page-node-type-page {
     .main-content {
       margin: 50px 0;
     }
@@ -153,7 +157,7 @@ body, .main {
 
   #mc_embed_signup .button {
     // color: #C2BEB5;
-    margin: 20px 0 0 0;
+    // margin: 20px 0 0 0;
     background-color: $gold;
     margin: 15px 0 0 0;
     font-size: 14px;
@@ -247,13 +251,13 @@ body, .main {
       }
 
       .views-field-changed {
-        padding-left: 7px;
+        // padding-left: 7px;
         font-style: italic;
       }
 
       .views-field-body {
         text-align: justify;
-        padding-left: 7px;
+        // padding-left: 7px;
       }
 
       .views-field-view-node {
@@ -497,7 +501,7 @@ header {
     background-color: $white_blue;
     color: #141A33;
     padding: 0;
-    height: 111px !important;
+    // height: 111px !important;
     -webkit-transition: all 0.3s linear;
     transition: all 0.1s linear;
 
@@ -524,6 +528,10 @@ header {
         transform: none;
       }
     }
+
+      // .navbar-text, .navbar-brand {
+      //   display: none;
+      // }
 
     .logo:hover {
       transform: none;
@@ -581,8 +589,8 @@ header {
     .logo {
       display: inline-block;
       // float: none !important;
-      width: 100px;
-      margin: 16px 0 6px 50px;
+      width: 25%;
+      margin: 16px 0 0 50px;
       img {
         // width: 35%;
         width: 100%;
@@ -689,6 +697,18 @@ header {
   }
 }
 
+//----- After-footer -----//
+.after-footer {
+  background-color: #13182b;
+  font-family: $font;
+  color: white;
+  padding: 5px;
+
+  p {
+    text-align: center;
+  }
+}
+
 //----- Slideshow -----//
 
 #views_slideshow_cycle_main_frontpage_slideshow-block_1 {
@@ -703,7 +723,7 @@ header {
     box-shadow: rgba(0, 0, 0, 0.6) 6px 7px 10px;
     padding: 30px;
 
-    h1 {
+    h1, h2 {
       font-size: 40px;
       margin-top: 0; 
     }
@@ -1154,7 +1174,7 @@ header {
     padding: 20px;
     overflow: hidden;
 
-    h2 {
+    h2, h1 {
       font-family: $font;
       font-size: 22px;
       line-height: 36px;
@@ -1416,6 +1436,44 @@ header {
         padding: 2px 10px;
         margin: 8px 12px 0 0;
         display: none;
+      }
+    }
+  }
+}
+
+#sliding-popup .popup-content {
+  #popup-text {
+    max-width: 64%;
+  }
+  #popup-buttons {
+    button {
+      background: none;
+      background-color: $gold;
+      margin: 15px 0 0 0;
+      font-size: 14px;
+      font-family: $font2;
+      text-shadow: none;
+      font-weight: normal;
+      // text-shadow: #000 2px 1px 4px;
+      border: 1px solid transparent;
+      border-color: rgba(247, 248, 253, 0.6);
+      -webkit-box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 5px;
+      -moz-box-shadow: rgba(0,0,0,0.5) 2px 2px 5px;
+      box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 5px;
+      color: white;
+
+      &:hover {
+        background: none;
+        background-color: $gold;
+      }
+
+      &:focus {
+        outline: 1px dotted rgba(255,255,255,0.7);
+        // outline: none;
+        // box-shadow: 0 0 6px 1px $gold;
+      }
+      &:active {
+        box-shadow: 0 0 6px 1px $gold;
       }
     }
   }

@@ -216,14 +216,16 @@
       background-color: $white_blue;
       
       .container {
-        float: left;
+        // float: left;
+        display: inline-block;
+        width: 80%;
         .site-branding-top {
           .logo {
             display: inline-block;
             margin: 0;
-            padding: 10px 10px 10px 30px;
+            padding: 10px 10px 10px 60px;
             img {
-              width: 60px;
+              width: 35%;
             }
           }
         }
@@ -326,9 +328,9 @@
       #mc_embed_signup .button {
         width: initial;
       }
-      .logo {
+      #block-footerbranding {
         display: inline-block;
-        width: 100px;
+        width: 40%;
         margin-right: 20px;
         margin-top: 0;
 
@@ -338,12 +340,15 @@
       }
       #block-addressdetails {
         display: inline-block;
+        float: none;
+        width: 50%;
         font-size: 16px;
         vertical-align: bottom;
         margin: 5px 0;
       }
       #block-socialmedia {
         margin: 25px 0px;
+        display: block;
       }
       #block-newsletter {
         display: inline-block;
@@ -537,6 +542,17 @@
   header .pre-header #block-languageswitcher ul {
     display: none;
   }
+  header .navbar-header .container .site-branding-top .logo img {
+    width: 60%;
+  }
+  footer .footer-region .footer_1 .region-footer-col1 #block-addressdetails {
+    display: block;
+    margin: 20px 0;
+  }
+  footer .footer-region .footer_1 .region-footer-col1 #block-footerbranding {
+    display: block;
+    width: 60%;
+  }
   // header .pre-header #block-contactinfo ul.contact-info li {
   //   a {
   //     display: none;
@@ -704,7 +720,7 @@
       a.logo {
         padding: 10px 4px; 
         img {
-          width: 50px;
+          width: 70%;
         }
       }
       a.name {

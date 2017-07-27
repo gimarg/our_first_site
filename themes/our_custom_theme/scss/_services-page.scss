@@ -102,6 +102,13 @@
                 -moz-transition: 0.2s ease-in-out;
                 -ms-transition: 0.2s ease-in-out;
                 -o-transition: 0.2s ease-in-out;
+
+                h1 {
+                  margin: 0;
+                  font-size: inherit;
+                  line-height: inherit;
+                  font-weight: inherit;
+                }
               }
               
               &:first-child .tablink {

@@ -1,0 +1,11 @@
+name: Blazemeter
+type: module
+description: Integration with BlazeMeter
+# core: 8.x
+package: Other
+configure: blazemeter.settings
+# Information added by Drupal.org packaging script on 2016-08-25
+version: '8.x-1.0'
+core: '8.x'
+project: 'blazemeter'
+datestamp: 1472135041
